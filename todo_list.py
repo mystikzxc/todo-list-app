@@ -1,5 +1,5 @@
 # Location for tasks file
-FILE_LOCATION = "todo_list_app/tasks.txt"
+FILE_LOCATION = "todo-list-app/tasks.txt"
 
 # Tasks list
 tasks = []
@@ -45,27 +45,33 @@ def save_tasks():
         tasks_file.write(str(task) + "\n")
     tasks_file.close()
 
-# Display menu in a loop until Exit
-load_tasks()
 
-while True:
-    print("----------")
-    print("MENU:")
-    print("(1) Add Task\n(2) Remove Task\n(3) Show Tasks\n(4) Exit")
-    print("----------")
+# Main function to load tasks and loop the menu
+def main():
+    # Display menu in a loop until Exit
+    load_tasks()
 
-    selection = input("Make a selection: ")
+    while True:
+        print("----------")
+        print("MENU:")
+        print("(1) Add Task\n(2) Remove Task\n(3) Show Tasks\n(4) Exit")
+        print("----------")
 
-    if selection == "1": # Add Task
-        task = input("Create Task: ")
-        add_task(task)
-    elif selection == "2": # Remove Task
-        task = input("Remove Task: ")
-        remove_task(task)
-    elif selection == "3": # Show Tasks
-        show_tasks()
-    elif selection == "4": # Exit
-        save_tasks()
-        break
-    else:
-        print("Incorrect selection")
+        selection = input("Make a selection: ")
+
+        if selection == "1": # Add Task
+            task = input("Create Task: ")
+            add_task(task)
+        elif selection == "2": # Remove Task
+            task = input("Remove Task: ")
+            remove_task(task)
+        elif selection == "3": # Show Tasks
+            show_tasks()
+        elif selection == "4": # Exit
+            save_tasks()
+            break
+        else:
+            print("Incorrect selection")
+
+if __name__ == "__main__":
+    main()
